@@ -21,4 +21,13 @@ Product.create(:title => 'Cat Hair in a bag',
                :image_url => 'http://4.bp.blogspot.com/-3WbFecUjEFI/TsK0Ytd9a0I/AAAAAAAANss/wqZruKg64sQ/s1600/cwch6.jpg',
                :price => 0.20)
 
+Product.create(:title => 'Wonder Water by Hasco',
+               :description => %{<p>
+                                    Introducing Wonder Water! by Hasco. Thirsty? Want something to drink? No longer! Hasco's amazing new product will satisfy you all night long!
+                                    Never again feel thirsty. Never again wait in line at a water fountain! Wonder Water by Hasco taste like water, looks like water and feels like water.
+                                    Even our specilized science agents couldn't let the difference between out product and real water!
+                                </p>},
+               :image_url => 'http://vterrain.org/Water/water2.bmp',
+               :price => 7.99)
+
 
