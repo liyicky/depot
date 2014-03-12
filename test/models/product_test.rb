@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
+
   test "product assertions" do
     product = Product.new
     assert product.invalid?
@@ -30,7 +32,28 @@ class ProductTest < ActiveSupport::TestCase
     def new_product(image_url)
       Product.new(title:        "The Book Title",
                   description:  "test",
+                  price:        9.99,
                   image_url:    image_url)
     end
+
+    ok = %w{ test.jpg test.gif test.png TEST.JPG TEST.GIF TEST.Jpg http://a.b.c/x/y/z/test.png }
+    bad = %w{ test.doc test.txt text.gif.more test.jpg/more }
+
+    ok.each do |name|
+      assert new_product(name).valid?, "#{name} should be valid"
+    end
+
+    bad.each do |name|
+      assert new_product(name).invalid?, "#{name} should be invalid"
+    end
+  end
+
+  test "product is not valid without a unique title" do
+    product = Product.new(title:        products(:ruby).title,
+                          description:  "test",
+                          price:        0.99,
+                          image_url:    "test.png")
+    assert product.invalid?
+    assert_equal ["has already been taken"], product.errors[:title]
   end
 end
