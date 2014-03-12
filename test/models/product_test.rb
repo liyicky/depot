@@ -56,4 +56,17 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
   end
+
+  test "product title lenght is greater than 1 character" do
+    good_product = products(:ruby)
+    bad_product = Product.new(title:         "a",
+                              description:   "Bad product! Very bad product!",
+                              price:          0.99,
+                              image_url:      "test.jpg")
+
+    assert good_product.valid?
+    assert bad_product.invalid?, "title lenght should be greater than 2 characters"
+    assert_equal ["2 characters is the minimum allowed"], bad_product.errors[:title]
+
+  end
 end
