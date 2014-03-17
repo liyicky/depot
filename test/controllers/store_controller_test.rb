@@ -10,4 +10,10 @@ class StoreControllerTest < ActionController::TestCase
     assert_select '.price', /\$[,\d]+\.\d\d/
   end
 
+  test "should display the current date" do
+    get :index
+    time = Time.new.strftime("%m-%d-%y")
+    assert_select '.time', time
+  end
+
 end
