@@ -28,7 +28,7 @@ class ProductTest < ActiveSupport::TestCase
     assert product.valid?
   end
 
-  test "image_url must be of type .jpg, .gif, or .png" do
+  test "image_url must be of type .jpg, .gif, .png, or .bmp" do
     def new_product(image_url)
       Product.new(title:        "The Book Title",
                   description:  "test",
@@ -36,7 +36,7 @@ class ProductTest < ActiveSupport::TestCase
                   image_url:    image_url)
     end
 
-    ok = %w{ test.jpg test.gif test.png TEST.JPG TEST.GIF TEST.Jpg http://a.b.c/x/y/z/test.png }
+    ok = %w{ test.jpg test.gif test.png TEST.JPG TEST.GIF TEST.Jpg cat.bmp http://a.b.c/x/y/z/test.png }
     bad = %w{ test.doc test.txt text.gif.more test.jpg/more }
 
     ok.each do |name|
