@@ -23,7 +23,7 @@ class ProductsControllerTest < ActionController::TestCase
     assert_select 'dd', 'Cats need a penis. Introducting Cat dicks!'
     assert_select 'table .list_line_odd', minimum: 1
     assert_select '.list_actions', minimum: 1
-    assert_select 'a', 'New Product
+    assert_select 'a', 'New Product'
   end
 
   test "should get new" do
@@ -61,6 +61,4 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
-
-  test
 end
