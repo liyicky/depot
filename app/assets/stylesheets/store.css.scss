@@ -3,12 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .store {
-  h1 {
-    margin: 0;
-    padding-bottom: 0.5em;
-    font: 150% helvetica;
-    color: #226;
-    border-bottom: 3px dotted #77d;
+
+  .header {
+    h1 {
+      margin: 0;
+      padding-bottom: 0.5em;
+      font: 150% helvetica;
+      color: #226;
+      border-bottom: 3px dotted #77d;
+    }
+
+    p {
+      display: inline;
+      padding-bottom: 0.5em;
+      font: 100% helvetica;
+      color: #226;
+    }
   }
 
   .entry {
@@ -35,6 +45,10 @@
       margin-left: 100px;
       margin-top: 0.5em;
       margin-bottom: 0.8em;
+
+      form, div {
+        display: inline;
+      }
     }
 
     .price {

@@ -2,7 +2,13 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1>The Buying Store</h1>
+<div class="header">
+  <h1>The Buying Store
+  <% if @counter > 4 %>
+    <p class="counter"><%= @counter %></p>
+  <% end %>
+  </h1>
+</div>
 
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
@@ -13,6 +19,7 @@
         <%= sanitize(product.description) %>
         <div class="price_line">
           <span class="price"><%= number_to_currency(product.price) %></span>
+          <%= button_to "Add to Cart", line_items_path(product_id: product) %>
         </div>
       </div>
     <% end %>
