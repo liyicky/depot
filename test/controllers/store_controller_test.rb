@@ -18,7 +18,7 @@ class StoreControllerTest < ActionController::TestCase
 
   test "should initialize the session counter as 0" do
     get :index
-    assert_select ".counter", 1
+    assert_select ".counter", 0
   end
 
 end
